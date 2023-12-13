@@ -5,7 +5,7 @@ cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
 def new_game():
     go_on = input(
-        "Do you want to play another game of BlackJack? Type 'y' for yes and'n' for no ").lower()
+        "Do you want to play another game of BlackJack? Type 'y' for yes and'n' for no\n> ").lower()
     if go_on == 'y':
         game_iteration()
 
@@ -48,7 +48,9 @@ def game_instance(user_cards, computer_cards):
         user_play(user_cards, computer_cards)
     else:
         computer_play(user_cards, computer_cards)
-        if sum(user_cards) > sum(computer_cards):
+        if sum(computer_cards) > 21:
+            print('Computer went over, you win!')
+        elif sum(user_cards) > sum(computer_cards):
             print('You win!')
         elif sum(user_cards) < sum(computer_cards):
             print('You lose')
